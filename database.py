@@ -2,25 +2,20 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-# Development Database
-# SQLALCHEMY_DATABASE_URL = "sqlite:///./todos.db"
-
-#Production Databse
-# POSTGRESQL_DATABASE_URL = "postgresql://postgres:postgres@localhost/TodoApplicationDatabase"
+SQLALCHEMY_DATABASE_URL = "sqlite:///./todos.db"
 
 # MYSQL Series
-MYSQL_DATABASE_URL = "mysql+pymysql://root:password@127.0.0.1:3306/todoapp"
+# SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:test1234!@127.0.0.1:3306/todoapp"
 
 engine = create_engine(
-    MYSQL_DATABASE_URL
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
 )
 
 # MYSQL Series
 # engine = create_engine(
-#     MYSQL_DATABASE_URL
+#     SQLALCHEMY_DATABASE_URL
 # )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-    # POSTGRESQL_DATABASE_URL
 
 Base = declarative_base()
