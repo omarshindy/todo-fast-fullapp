@@ -12,7 +12,6 @@ from sqlalchemy.ext.declarative import declarative_base
 MYSQL_DATABASE_URL = "mysql+pymysql://root:password@127.0.0.1:3306/todoapp"
 
 engine = create_engine(
-    # POSTGRESQL_DATABASE_URL
     MYSQL_DATABASE_URL
 )
 
@@ -22,5 +21,6 @@ engine = create_engine(
 # )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    # POSTGRESQL_DATABASE_URL
 
 Base = declarative_base()
