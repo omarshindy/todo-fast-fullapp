@@ -2,7 +2,7 @@ from sqlalchemy import Boolean, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from database import Base
 
-
+# User Model
 class Users(Base):
     __tablename__ = "users"
 
@@ -17,6 +17,7 @@ class Users(Base):
     todos = relationship("Todos", back_populates="owner")
 
 
+# Todo Model
 class Todos(Base):
     __tablename__ = "todos"
 
